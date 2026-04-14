@@ -1,0 +1,33 @@
+html { scroll-behavior: smooth; }
+
+/* Language Toggle Logic */
+body.lang-en .ar-text { display: none !important; }
+body.lang-ar .en-text { display: none !important; }
+
+body.lang-en { direction: ltr; font-family: 'Roboto', sans-serif; }
+body.lang-en h1, body.lang-en h2, body.lang-en h3, body.lang-en h4, body.lang-en h5, body.lang-en h6, body.lang-en .font-bold { 
+    font-family: 'Roboto Slab', serif; 
+}
+body.lang-ar { direction: rtl; font-family: 'Cairo', sans-serif; }
+
+/* Hero Background Template Placeholder */
+.hero-placeholder {
+    background: repeating-linear-gradient(
+        45deg,
+        #1e293b,
+        #1e293b 20px,
+        #273549 20px,
+        #273549 40px
+    );
+}
+
+.img-placeholder {
+    background: repeating-linear-gradient(
+        45deg,
+        #f3f4f6,
+        #f3f4f6 10px,
+        #e5e7eb 10px,
+        #e5e7eb 20px
+    );
+    border: 2px dashed #9ca3af;
+}

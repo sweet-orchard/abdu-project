@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ماستر للمقاولات العامة والتوريدات العمومية | Master for Contracting</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="media/favicon.png">
+    <link rel="apple-touch-icon" href="media/favicon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Montserrat:wght@700&family=Roboto+Slab:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind Config -->
+    <script src="tailwind-config.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="lang-ar text-gray-800 bg-gray-50 selection:bg-primary selection:text-secondary">
+
+    <!-- Navbar -->
+    <nav class="bg-secondary text-white fixed w-full z-50 top-0 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="#" class="flex-shrink-0 flex items-center gap-3">
+                        <!-- LOGO -->
+                        <div class="w-10 h-10 md:w-14 md:h-14 bg-transparent flex items-center justify-center p-0.5 md:p-1 overflow-hidden shrink-0">
+                            <img src="media/white-logo.png" alt="Master for Contracting Logo" class="w-full h-full object-contain">
+                        </div>
+                        <span class="flex flex-col md:flex-row md:items-center gap-0 md:gap-3 text-white" dir="ltr">
+                            <span class="font-logoMaster font-medium uppercase tracking-wide text-xl md:text-2xl leading-none">MASTER</span>
+                            <span class="font-logoMaster font-medium uppercase tracking-wide text-primary text-[0.65rem] md:text-2xl mt-1 md:mt-0 leading-none">FOR CONTRACTING</span>
+                        </span>
+                    </a>
+                </div>
+                <!-- Links & Language Toggle -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#home" class="hover:text-primary transition font-semibold text-lg">
+                        <span class="ar-text">الرئيسية</span><span class="en-text">Home</span>
+                    </a>
+                    <a href="#about" class="hover:text-primary transition font-semibold text-lg">
+                        <span class="ar-text">من نحن</span><span class="en-text">About</span>
+                    </a>
+                    <a href="#services" class="hover:text-primary transition font-semibold text-lg">
+                        <span class="ar-text">الخدمات</span><span class="en-text">Services</span>
+                    </a>
+                    <a href="#projects" class="hover:text-primary transition font-semibold text-lg">
+                        <span class="ar-text">مشاريعنا</span><span class="en-text">Projects</span>
+                    </a>
+                    <a href="#contact" class="bg-primary text-secondary px-6 py-2 rounded-md font-bold hover:bg-yellow-500 transition">
+                        <span class="ar-text">اتصل بنا</span><span class="en-text">Contact Us</span>
+                    </a>
+                    <!-- TOGGLE BUTTON -->
+                    <button onclick="toggleLanguage()" class="border border-white px-3 py-1 rounded hover:bg-white hover:text-secondary transition font-bold">
+                        <span class="ar-text">EN</span><span class="en-text">عربي</span>
+                    </button>
+                </div>
+                
+                <!-- Mobile Toggle & Menu Button -->
+                <div class="md:hidden flex items-center gap-3">
+                    <button onclick="toggleLanguage()" class="border border-white px-2 py-1 rounded hover:bg-white hover:text-secondary transition text-sm font-bold">
+                        <span class="ar-text">EN</span><span class="en-text">عربي</span>
+                    </button>
+                    <button onclick="toggleMobileMenu()" class="text-white hover:text-primary focus:outline-none text-2xl transition">
+                        <i class="fa-solid fa-bars" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-secondary border-t border-gray-700 shadow-xl absolute w-full">
+            <div class="flex flex-col px-6 py-4 space-y-4">
+                <a href="#home" onclick="toggleMobileMenu()" class="hover:text-primary transition font-semibold text-lg border-b border-gray-700 pb-2">
+                    <span class="ar-text">الرئيسية</span><span class="en-text">Home</span>
+                </a>
+                <a href="#about" onclick="toggleMobileMenu()" class="hover:text-primary transition font-semibold text-lg border-b border-gray-700 pb-2">
+                    <span class="ar-text">من نحن</span><span class="en-text">About</span>
+                </a>
+                <a href="#services" onclick="toggleMobileMenu()" class="hover:text-primary transition font-semibold text-lg border-b border-gray-700 pb-2">
+                    <span class="ar-text">الخدمات</span><span class="en-text">Services</span>
+                </a>
+                <a href="#projects" onclick="toggleMobileMenu()" class="hover:text-primary transition font-semibold text-lg border-b border-gray-700 pb-2">
+                    <span class="ar-text">مشاريعنا</span><span class="en-text">Projects</span>
+                </a>
+                <a href="#contact" onclick="toggleMobileMenu()" class="text-primary font-bold text-lg pt-1">
+                    <span class="ar-text">اتصل بنا</span><span class="en-text">Contact Us</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 md:pt-40 md:pb-28 min-h-screen flex items-center relative border-b border-gray-800 overflow-hidden bg-secondary">
+        
+        <!-- Background Video -->
+        <!-- Replace 'YOUR_VIDEO_LINK.mp4' with the actual link to your video -->
+        <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-0 opacity-60">
+            <source src="/media/header_image_escavator.mp4" type="video/mp4">
+            <!-- Add a fallback image just in case the video fails to load on a very slow connection -->
+            <!-- <img src="FALLBACK_IMAGE.jpg" class="w-full h-full object-cover"> -->
+        </video>
+
+        <!-- Dark Gradient Overlay for better text readability -->
+        <div class="absolute inset-0 bg-gradient-to-r from-secondary/90 to-secondary/60 z-10"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 text-center md:text-start w-full">
+            <span class="inline-block py-1 px-3 rounded-full bg-primary/20 text-primary border border-primary/50 text-sm font-bold mb-4">
+                <span class="ar-text">تأسست عام 2023</span>
+                <span class="en-text">Established in 2023</span>
+            </span>
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-6">
+                <span class="ar-text block leading-[1.4] md:leading-[1.5]">
+                    <span class="block">شريكك الموثوق في</span>
+                    <span class="text-primary">مشاريع البنية التحتية</span> والمرافق
+                </span>
+                <span class="en-text block leading-[1.2] md:leading-[1.3]">
+                    <span class="block">Your Reliable Partner in</span>
+                    <span class="text-primary">Infrastructure</span> & Utilities
+                </span>
+            </h1>
+            <p class="mt-4 max-w-2xl text-xl text-gray-300 mb-10 mx-auto md:mx-0 leading-relaxed">
+                <span class="ar-text">شركة مقاولات مصرية متخصصة في أعمال البنية التحتية، شبكات المياه، أنظمة الصرف الصحي، وإنشاء الطرق.</span>
+                <span class="en-text">An Egyptian contracting company specialized in comprehensive infrastructure, water networks, sewage systems, and road construction.</span>
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                <a href="#services" class="bg-primary hover:bg-yellow-500 text-secondary font-bold text-lg py-4 px-8 rounded-lg shadow-lg transition duration-300 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-helmet-safety"></i> 
+                    <span class="ar-text">اكتشف خدماتنا</span><span class="en-text">Discover Services</span>
+                </a>
+                <a href="#projects" class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-secondary font-bold text-lg py-4 px-8 rounded-lg transition duration-300">
+                    <span class="ar-text">سابقة الأعمال</span><span class="en-text">Our Projects</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-secondary mb-2">
+                        <span class="ar-text">عن شركة ماستر</span><span class="en-text">About Master for Contracting</span>
+                    </h2>
+                    <div class="w-20 h-1 bg-primary mb-6"></div>
+                    <p class="text-gray-600 mb-4 leading-relaxed text-lg ar-text">
+                        شركة ماستر للمقاولات العامة والتوريدات العمومية هي شركة مصرية رائدة تأسست عام 2023. نحن متخصصون في تنفيذ أعمال البنية التحتية الشاملة والمرافق بكفاءة عالية.
+                    </p>
+                    <p class="text-gray-600 mb-6 leading-relaxed text-lg ar-text">
+                        يضم فريقنا نخبة من المهندسين والفنيين والمشغلين ذوي الخبرة (أكثر من 50 موظف)، مدعومين بأسطول من أحدث المعدات والآليات الثقيلة، لضمان تنفيذ المشاريع بدقة، متانة، وامتثال كامل للمواصفات الفنية.
+                    </p>
+
+                    <p class="text-gray-600 mb-4 leading-relaxed text-lg en-text">
+                        Master General Contracting and Supplies was established in 2023. We are a leading Egyptian privately owned company specializing in engineering services, utility infrastructure, and large-scale projects.
+                    </p>
+                    <p class="text-gray-600 mb-6 leading-relaxed text-lg en-text">
+                        With over 50 expert employees, our team of engineers, technicians, and operators is supported by modern heavy equipment to ensure projects are executed with precision, durability, and full compliance with industry standards.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-4 mt-8">
+                        <div class="bg-gray-50 p-4 rounded-lg border-s-4 border-primary shadow-sm">
+                            <i class="fa-solid fa-location-dot text-2xl text-secondary mb-2"></i>
+                            <h4 class="font-bold text-lg"><span class="ar-text">نطاق العمل</span><span class="en-text">Locations</span></h4>
+                            <p class="text-sm text-gray-500">
+                                <span class="ar-text">المنيا، مستقبل مصر، مدينة النور، زايد الجديدة، وغيرها.</span>
+                                <span class="en-text">Minya, Mostakbal Misr, Madinat Al-Noor, New Zayed & more.</span>
+                            </p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg border-s-4 border-primary shadow-sm">
+                            <i class="fa-solid fa-gears text-2xl text-secondary mb-2"></i>
+                            <h4 class="font-bold text-lg"><span class="ar-text">أسطول معدات</span><span class="en-text">Equipment Fleet</span></h4>
+                            <p class="text-sm text-gray-500">
+                                <span class="ar-text">حفارات ولوادر وشاحنات للعمل الشاق والتأجير.</span>
+                                <span class="en-text">Excavators, loaders, and trucks available for rent.</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+    <!-- Image Container -->
+    <div class="w-full h-80 md:h-96 rounded-xl shadow-2xl z-10 relative overflow-hidden bg-gray-200">
+        <img src="/media/excavator_about_section.png" alt="Master for Contracting Excavator" class="w-full h-full object-cover">
+    </div>
+    
+    <!-- Yellow Decorative Border -->
+    <div class="absolute -bottom-6 -end-6 w-full h-full border-4 border-primary rounded-xl z-0 hidden md:block"></div>
+</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold text-secondary mb-2">
+                    <span class="ar-text">خدماتنا المتخصصة</span><span class="en-text">Our Specialized Services</span>
+                </h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-4"></div>
+                <p class="text-gray-600 text-lg">
+                    <span class="ar-text">نقدم حلولاً متكاملة بأعلى معايير الهندسة في مجالات البنية التحتية.</span>
+                    <span class="en-text">We provide integrated solutions with the highest engineering standards in infrastructure.</span>
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Service 1 -->
+                <div class="group rounded-2xl overflow-hidden shadow-lg relative h-72 hover:-translate-y-2 transition duration-300">
+                    <!-- Background Image Placeholder -->
+                    <div class="absolute inset-0 w-full h-full img-placeholder flex flex-col items-center justify-center text-gray-500 font-bold p-4 text-center">
+                        <i class="fa-solid fa-image text-3xl mb-2"></i>
+                        <span class="text-sm">[PLACEHOLDER: Water Networks Image]</span>
+                    </div>
+                    <!-- Overlay -->
+                    <div class="absolute bottom-0 w-full bg-black/75 backdrop-blur-sm p-4 text-center group-hover:bg-primary transition-colors duration-300 flex flex-col justify-end">
+                        <h3 class="text-lg md:text-xl font-bold text-white group-hover:text-secondary transition-colors duration-300">
+                            <span class="ar-text">شبكات المياه والري</span><span class="en-text">Water & Irrigation Networks</span>
+                        </h3>
+                        <p class="text-gray-300 text-sm max-h-0 opacity-0 group-hover:max-h-24 group-hover:opacity-100 group-hover:text-secondary/80 group-hover:mt-2 transition-all duration-500 overflow-hidden">
+                            <span class="ar-text">تركيب شبكات المياه وأنظمة الري، وخطوط الضغط العالي مع غرف التفتيش.</span>
+                            <span class="en-text">Installation of water supply networks, irrigation systems, and pressure pipelines.</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="group rounded-2xl overflow-hidden shadow-lg relative h-72 hover:-translate-y-2 transition duration-300">
+                    <div class="absolute inset-0 w-full h-full img-placeholder flex flex-col items-center justify-center text-gray-500 font-bold p-4 text-center">
+                        <i class="fa-solid fa-image text-3xl mb-2"></i>
+                        <span class="text-sm">[PLACEHOLDER: Sewage Networks Image]</span>
+                    </div>
+                    <div class="absolute bottom-0 w-full bg-black/75 backdrop-blur-sm p-4 text-center group-hover:bg-primary transition-colors duration-300 flex flex-col justify-end">
+                        <h3 class="text-lg md:text-xl font-bold text-white group-hover:text-secondary transition-colors duration-300">
+                            <span class="ar-text">شبكات الصرف الصحي</span><span class="en-text">Sewage Networks</span>
+                        </h3>
+                        <p class="text-gray-300 text-sm max-h-0 opacity-0 group-hover:max-h-24 group-hover:opacity-100 group-hover:text-secondary/80 group-hover:mt-2 transition-all duration-500 overflow-hidden">
+                            <span class="ar-text">تنفيذ شبكات الانحدار والصرف الصحي بأساليب الشدات الخشبية لضمان سلامة التربة.</span>
+                            <span class="en-text">Execution of comprehensive sewage and drainage networks to the highest industry standards.</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="group rounded-2xl overflow-hidden shadow-lg relative h-72 hover:-translate-y-2 transition duration-300">
+                    <div class="absolute inset-0 w-full h-full img-placeholder flex flex-col items-center justify-center text-gray-500 font-bold p-4 text-center">
+                        <i class="fa-solid fa-image text-3xl mb-2"></i>
+                        <span class="text-sm">[PLACEHOLDER: Road Construction Image]</span>
+                    </div>
+                    <div class="absolute bottom-0 w-full bg-black/75 backdrop-blur-sm p-4 text-center group-hover:bg-primary transition-colors duration-300 flex flex-col justify-end">
+                        <h3 class="text-lg md:text-xl font-bold text-white group-hover:text-secondary transition-colors duration-300">
+                            <span class="ar-text">إنشاء الطرق</span><span class="en-text">Road Construction</span>
+                        </h3>
+                        <p class="text-gray-300 text-sm max-h-0 opacity-0 group-hover:max-h-24 group-hover:opacity-100 group-hover:text-secondary/80 group-hover:mt-2 transition-all duration-500 overflow-hidden">
+                            <span class="ar-text">توريد جميع أنواع التربة، تنفيذ طبقات الأساس، ونقل المخلفات تمهيداً للأسفلت.</span>
+                            <span class="en-text">Road construction works, including supply of soil and execution of road layers.</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="group rounded-2xl overflow-hidden shadow-lg relative h-72 hover:-translate-y-2 transition duration-300">
+                    <div class="absolute inset-0 w-full h-full img-placeholder flex flex-col items-center justify-center text-gray-500 font-bold p-4 text-center">
+                        <i class="fa-solid fa-image text-3xl mb-2"></i>
+                        <span class="text-sm">[PLACEHOLDER: Equipment Rental Image]</span>
+                    </div>
+                    <div class="absolute bottom-0 w-full bg-black/75 backdrop-blur-sm p-4 text-center group-hover:bg-primary transition-colors duration-300 flex flex-col justify-end">
+                        <h3 class="text-lg md:text-xl font-bold text-white group-hover:text-secondary transition-colors duration-300">
+                            <span class="ar-text">تأجير المعدات الثقيلة</span><span class="en-text">Equipment Rental</span>
+                        </h3>
+                        <p class="text-gray-300 text-sm max-h-0 opacity-0 group-hover:max-h-24 group-hover:opacity-100 group-hover:text-secondary/80 group-hover:mt-2 transition-all duration-500 overflow-hidden">
+                            <span class="ar-text">نوفر أسطولاً مجهزاً من حفارات ولوادر وسيارات نقل متاحة للإيجار للمشاريع.</span>
+                            <span class="en-text">A fully equipped fleet of machinery available for rental.</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="group rounded-2xl overflow-hidden shadow-lg relative h-72 hover:-translate-y-2 transition duration-300">
+                    <div class="absolute inset-0 w-full h-full img-placeholder flex flex-col items-center justify-center text-gray-500 font-bold p-4 text-center">
+                        <i class="fa-solid fa-image text-3xl mb-2"></i>
+                        <span class="text-sm">[PLACEHOLDER: Maintenance Image]</span>
+                    </div>
+                    <div class="absolute bottom-0 w-full bg-black/75 backdrop-blur-sm p-4 text-center group-hover:bg-primary transition-colors duration-300 flex flex-col justify-end">
+                        <h3 class="text-lg md:text-xl font-bold text-white group-hover:text-secondary transition-colors duration-300">
+                            <span class="ar-text">الصيانة والدعم</span><span class="en-text">Maintenance & Support</span>
+                        </h3>
+                        <p class="text-gray-300 text-sm max-h-0 opacity-0 group-hover:max-h-24 group-hover:opacity-100 group-hover:text-secondary/80 group-hover:mt-2 transition-all duration-500 overflow-hidden">
+                            <span class="ar-text">خدمات شاملة لمعالجة أي أعطال أو شروخ لضمان الأداء الأمثل على المدى الطويل.</span>
+                            <span class="en-text">Comprehensive after-installation maintenance ensuring long-term durability.</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="group rounded-2xl overflow-hidden shadow-lg relative h-72 hover:-translate-y-2 transition duration-300">
+                    <div class="absolute inset-0 w-full h-full img-placeholder flex flex-col items-center justify-center text-gray-500 font-bold p-4 text-center">
+                        <i class="fa-solid fa-image text-3xl mb-2"></i>
+                        <span class="text-sm">[PLACEHOLDER: Centrifugal Pumps Image]</span>
+                    </div>
+                    <div class="absolute bottom-0 w-full bg-black/75 backdrop-blur-sm p-4 text-center group-hover:bg-primary transition-colors duration-300 flex flex-col justify-end">
+                        <h3 class="text-lg md:text-xl font-bold text-white group-hover:text-secondary transition-colors duration-300">
+                            <span class="ar-text">خطوط الضخ الطاردة</span><span class="en-text">Centrifugal Pumping Lines</span>
+                        </h3>
+                        <p class="text-gray-300 text-sm max-h-0 opacity-0 group-hover:max-h-24 group-hover:opacity-100 group-hover:text-secondary/80 group-hover:mt-2 transition-all duration-500 overflow-hidden">
+                            <span class="ar-text">تركيب محطات ومواسير الرفع والمضخات المركزية لشبكات المياه والصرف بأعلى دقة.</span>
+                            <span class="en-text">Installation of lifting stations and centrifugal pumping lines.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-20 bg-secondary text-white relative overflow-hidden text-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="mb-16">
+                <h2 class="text-3xl font-bold mb-2">
+                    <span class="ar-text">لماذا تختار ماستر للمقاولات؟</span><span class="en-text">Why Choose Master for Contracting?</span>
+                </h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-300 max-w-2xl mx-auto text-lg">
+                    <span class="ar-text">نحن لا نقدم مجرد وعود سريعة أو أسعار رخيصة، بل نركز على تقديم توازن متكامل بين الجودة والموثوقية.</span>
+                    <span class="en-text">We focus on delivering a complete balance of quality, reliability, and real value—not just the lowest price or fast promises.</span>
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="p-6">
+                    <div class="w-20 h-20 mx-auto bg-gray-800 rounded-full flex items-center justify-center text-primary text-3xl mb-4 border-2 border-primary/30">
+                        <i class="fa-solid fa-ear-listen"></i>
+                    </div>
+                    <h4 class="font-bold text-xl mb-2">
+                        <span class="ar-text">فهم دقيق للاحتياجات</span><span class="en-text">Understand Exact Needs</span>
+                    </h4>
+                    <p class="text-gray-400 text-sm">
+                        <span class="ar-text">نحرص على دراسة متطلبات كل عميل بدقة قبل البدء لضمان حلول مخصصة.</span>
+                        <span class="en-text">We take time to understand each client’s exact needs before starting to provide customized solutions.</span>
+                    </p>
+                </div>
+                <div class="p-6">
+                    <div class="w-20 h-20 mx-auto bg-gray-800 rounded-full flex items-center justify-center text-primary text-3xl mb-4 border-2 border-primary/30">
+                        <i class="fa-solid fa-handshake"></i>
+                    </div>
+                    <h4 class="font-bold text-xl mb-2">
+                        <span class="ar-text">تواصل شفاف</span><span class="en-text">Clear Communication</span>
+                    </h4>
+                    <p class="text-gray-400 text-sm">
+                        <span class="ar-text">نحافظ على تواصل واضح وشفاف طوال مراحل العمل خطوة بخطوة.</span>
+                        <span class="en-text">Maintain clear communication throughout the entire process from start to finish.</span>
+                    </p>
+                </div>
+                <div class="p-6">
+                    <div class="w-20 h-20 mx-auto bg-gray-800 rounded-full flex items-center justify-center text-primary text-3xl mb-4 border-2 border-primary/30">
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                    </div>
+                    <h4 class="font-bold text-xl mb-2">
+                        <span class="ar-text">نتائج طويلة الأمد</span><span class="en-text">Long-term Results</span>
+                    </h4>
+                    <p class="text-gray-400 text-sm">
+                        <span class="ar-text">نركز على الاستدامة وجودة التنفيذ وليس مجرد إنجاز المهمة السطحي.</span>
+                        <span class="en-text">We focus on long-term results, not just finishing the job quickly.</span>
+                    </p>
+                </div>
+                <div class="p-6">
+                    <div class="w-20 h-20 mx-auto bg-gray-800 rounded-full flex items-center justify-center text-primary text-3xl mb-4 border-2 border-primary/30">
+                        <i class="fa-solid fa-calendar-check"></i>
+                    </div>
+                    <h4 class="font-bold text-xl mb-2">
+                        <span class="ar-text">تسليم في الموعد</span><span class="en-text">On-Time Delivery</span>
+                    </h4>
+                    <p class="text-gray-400 text-sm">
+                        <span class="ar-text">نلتزم بالجدول الزمني المحدد للمشروع وبمعايير جودة ثابتة وصارمة.</span>
+                        <span class="en-text">We deliver on time with consistent quality standards and safety regulations.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <h2 class="text-3xl font-bold text-secondary mb-2">
+                        <span class="ar-text">أبرز مشاريعنا</span><span class="en-text">Our Projects Portfolio</span>
+                    </h2>
+                    <div class="w-20 h-1 bg-primary mb-4"></div>
+                    <p class="text-gray-600">
+                        <span class="ar-text">سجل حافل بالإنجازات في مختلف المحافظات.</span><span class="en-text">A proven track record of successful deliveries across Egypt.</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 text-start">
+                
+                <!-- Project 1 -->
+                <div class="group rounded-xl overflow-hidden shadow-lg bg-gray-50 border border-gray-100 flex flex-col sm:flex-row h-full">
+                    <!-- IMAGE PLACEHOLDER -->
+                    <div class="w-full sm:w-2/5 relative h-48 sm:h-auto flex items-center justify-center text-gray-500 font-bold p-4 text-center img-placeholder">
+                        <span>[PLACEHOLDER: Project Photo - Menya Trenching]</span>
+                    </div>
+                    <div class="p-6 w-full sm:w-3/5 flex flex-col justify-center">
+                        <span class="text-sm font-bold text-primary mb-1">
+                            <span class="ar-text">المنيا (ملوي - قلندول والروضة)</span><span class="en-text">Minya (Malwi)</span>
+                        </span>
+                        <h3 class="text-xl font-bold text-secondary mb-2">
+                            <span class="ar-text">الصرف الصحي - حياة كريمة</span><span class="en-text">Hayah Karima Sewage Network</span>
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            <span class="ar-text">2022-2024. تنفيذ واختبار شبكة صرف صحي وانحدار متكاملة بأعلى المعايير.</span>
+                            <span class="en-text">2022-2024. Full sewage network installation, tested and successfully delivered improving community sanitation.</span>
+                        </p>
+                        <div class="flex items-center text-green-600 text-sm font-bold mt-auto">
+                            <i class="fa-solid fa-circle-check mx-2"></i> 
+                            <span class="ar-text">تم التسليم بنجاح</span><span class="en-text">Successfully Delivered</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="group rounded-xl overflow-hidden shadow-lg bg-gray-50 border border-gray-100 flex flex-col sm:flex-row h-full">
+                    <!-- IMAGE PLACEHOLDER -->
+                    <div class="w-full sm:w-2/5 relative h-48 sm:h-auto flex items-center justify-center text-gray-500 font-bold p-4 text-center img-placeholder">
+                        <span>[PLACEHOLDER: Project Photo - Yellow Dump Trucks/Mostakbal Misr]</span>
+                    </div>
+                    <div class="p-6 w-full sm:w-3/5 flex flex-col justify-center">
+                        <span class="text-sm font-bold text-primary mb-1">
+                            <span class="ar-text">الضبعة الجديدة</span><span class="en-text">Al-Dabaa New Road</span>
+                        </span>
+                        <h3 class="text-xl font-bold text-secondary mb-2">
+                            <span class="ar-text">مشروع مستقبل مصر</span><span class="en-text">Mostakbal Misr Project</span>
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            <span class="ar-text">2024-2025. تنفيذ المرافق وتوريد التربة المخصصة للطرق تمهيداً لأعمال الرصف.</span>
+                            <span class="en-text">2024-2025. Construction of new road networks and soil preparation for paving.</span>
+                        </p>
+                        <div class="flex items-center text-blue-600 text-sm font-bold mt-auto">
+                            <i class="fa-solid fa-person-digging mx-2"></i> 
+                            <span class="ar-text">عمل جارٍ</span><span class="en-text">Ongoing Work</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="group rounded-xl overflow-hidden shadow-lg bg-gray-50 border border-gray-100 flex flex-col sm:flex-row h-full">
+                    <!-- IMAGE PLACEHOLDER -->
+                    <div class="w-full sm:w-2/5 relative h-48 sm:h-auto flex items-center justify-center text-gray-500 font-bold p-4 text-center img-placeholder">
+                        <span>[PLACEHOLDER: Project Photo - Madinat Al-Noor]</span>
+                    </div>
+                    <div class="p-6 w-full sm:w-3/5 flex flex-col justify-center">
+                        <span class="text-sm font-bold text-primary mb-1">
+                            <span class="ar-text">مجموعة طلعت مصطفى / كونكورد</span><span class="en-text">Talaat Moustafa Group</span>
+                        </span>
+                        <h3 class="text-xl font-bold text-secondary mb-2">
+                            <span class="ar-text">البنية التحتية بمدينة النور</span><span class="en-text">Madinat Al-Noor Infrastructure</span>
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            <span class="ar-text">بنية تحتية متكاملة تشمل تركيب وتنفيذ شبكات المياه والصرف الصحي لتأسيس المدينة.</span>
+                            <span class="en-text">Full infrastructure including water and sewage systems execution.</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="group rounded-xl overflow-hidden shadow-lg bg-gray-50 border border-gray-100 flex flex-col sm:flex-row h-full">
+                    <!-- IMAGE PLACEHOLDER -->
+                    <div class="w-full sm:w-2/5 relative h-48 sm:h-auto flex items-center justify-center text-gray-500 font-bold p-4 text-center img-placeholder">
+                        <span>[PLACEHOLDER: Project Photo - New Zayed]</span>
+                    </div>
+                    <div class="p-6 w-full sm:w-3/5 flex flex-col justify-center">
+                        <span class="text-sm font-bold text-primary mb-1">
+                            <span class="ar-text">مدينة زايد الجديدة</span><span class="en-text">New Zayed City</span>
+                        </span>
+                        <h3 class="text-xl font-bold text-secondary mb-2">
+                            <span class="ar-text">مرافق وطرق زايد الجديدة</span><span class="en-text">New Zayed Utilities</span>
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            <span class="ar-text">أعمال مستمرة لإنشاء وتأسيس المرافق والبنية التحتية لشبكات الطرق الحديثة.</span>
+                            <span class="en-text">Ongoing utilities and road infrastructure works supporting future urban growth.</span>
+                        </p>
+                        <div class="flex items-center text-blue-600 text-sm font-bold mt-auto">
+                            <i class="fa-solid fa-person-digging mx-2"></i> 
+                            <span class="ar-text">عمل جارٍ</span><span class="en-text">Ongoing Work</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden text-start">
+                <div class="grid grid-cols-1 lg:grid-cols-2">
+                    
+                    <!-- Contact Info -->
+                    <div class="bg-secondary text-white p-10 md:p-16">
+                        <h2 class="text-3xl font-bold mb-2">
+                            <span class="ar-text">تواصل معنا الآن</span><span class="en-text">Contact Us Now</span>
+                        </h2>
+                        <div class="w-16 h-1 bg-primary mb-8"></div>
+                        <p class="text-gray-300 mb-10 leading-relaxed">
+                            <span class="ar-text">هل لديك مشروع بنية تحتية وتحتاج إلى مقاول يعتمد عليه؟ فريقنا جاهز للرد على استفساراتك.</span>
+                            <span class="en-text">Have an infrastructure project and need a reliable contractor? Our team is ready to assist you.</span>
+                        </p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-primary text-xl shrink-0">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-400"><span class="ar-text">رقم الهاتف</span><span class="en-text">Phone</span></p>
+                                    <p class="text-lg font-bold">770-836-321</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-primary text-xl shrink-0">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-400"><span class="ar-text">الفرع الرئيسي</span><span class="en-text">Location</span></p>
+                                    <p class="text-lg font-bold"><span class="ar-text">جمهورية مصر العربية</span><span class="en-text">Egypt</span></p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-primary text-xl shrink-0">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-400"><span class="ar-text">البريد الإلكتروني</span><span class="en-text">Email</span></p>
+                                    <p class="text-lg font-bold">info@mastercontracting.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Form -->
+                    <div class="p-10 md:p-16">
+                        <h3 class="text-2xl font-bold text-secondary mb-6">
+                            <span class="ar-text">اطلب عرض سعر</span><span class="en-text">Request a Quote</span>
+                        </h3>
+                        <form action="#" method="POST" class="space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-semibold text-gray-700 mb-2">
+                                        <span class="ar-text">الاسم بالكامل</span><span class="en-text">Full Name</span>
+                                    </label>
+                                    <input type="text" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-gray-700 mb-2">
+                                        <span class="ar-text">رقم الهاتف</span><span class="en-text">Phone Number</span>
+                                    </label>
+                                    <input type="tel" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">
+                                    <span class="ar-text">نوع الخدمة</span><span class="en-text">Service Type</span>
+                                </label>
+                                <div class="ar-text">
+                                    <select name="service" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition bg-white">
+                                        <option value="" disabled selected>اختر الخدمة</option>
+                                        <option value="water">شبكات المياه والري</option>
+                                        <option value="sewage">شبكات الصرف الصحي</option>
+                                        <option value="roads">إنشاء الطرق</option>
+                                        <option value="equipment">تأجير المعدات الثقيلة</option>
+                                        <option value="maintenance">الصيانة والدعم</option>
+                                        <option value="pumping">خطوط الضخ الطاردة</option>
+                                        <option value="other">أخرى</option>
+                                    </select>
+                                </div>
+                                <div class="en-text">
+                                    <select name="service" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition bg-white">
+                                        <option value="" disabled selected>Select a Service</option>
+                                        <option value="water">Water & Irrigation Networks</option>
+                                        <option value="sewage">Sewage Networks</option>
+                                        <option value="roads">Road Construction</option>
+                                        <option value="equipment">Equipment Rental</option>
+                                        <option value="maintenance">Maintenance & Support</option>
+                                        <option value="pumping">Centrifugal Pumping Lines</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">
+                                    <span class="ar-text">تفاصيل المشروع</span><span class="en-text">Project Details</span>
+                                </label>
+                                <textarea rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition"></textarea>
+                            </div>
+                            <button type="button" class="w-full bg-primary hover:bg-yellow-500 text-secondary font-bold text-lg py-4 rounded-lg shadow-md transition duration-300">
+                                <span class="ar-text">إرسال الطلب</span><span class="en-text">Submit Request</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8 border-t-4 border-primary text-start">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex flex-col gap-4 mb-6">
+                        <!-- LOGO LARGE -->
+                        <div class="w-24 md:w-32 lg:w-40 bg-transparent flex items-center justify-start overflow-hidden">
+                            <img src="media/white-logo.png" alt="Master for Contracting Logo" class="w-full h-auto object-contain">
+                        </div>
+                        <span class="flex flex-col md:flex-row w-fit md:items-center gap-0 md:gap-3 mt-1 text-white" dir="ltr">
+                            <span class="font-logoMaster font-medium uppercase tracking-wide text-3xl leading-none">MASTER</span>
+                            <span class="font-logoMaster font-medium uppercase tracking-wide text-primary text-sm md:text-3xl mt-1 md:mt-0 leading-none">FOR CONTRACTING</span>
+                        </span>
+                    </div>
+                    <p class="text-gray-400 mb-6 leading-relaxed max-w-sm">
+                        <span class="ar-text">شركة مصرية متخصصة في أعمال البنية التحتية، شبكات المياه والصرف، والطرق. نبني مستقبلاً مستداماً بأسس هندسية متينة.</span>
+                        <span class="en-text">Egyptian company specialized in infrastructure, water networks, and roads. Building a sustainable future with solid engineering foundations.</span>
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4 border-b border-gray-700 pb-2">
+                        <span class="ar-text">روابط سريعة</span><span class="en-text">Quick Links</span>
+                    </h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#about" class="hover:text-primary transition"><span class="ar-text">من نحن</span><span class="en-text">About Us</span></a></li>
+                        <li><a href="#services" class="hover:text-primary transition"><span class="ar-text">خدمات الشركة</span><span class="en-text">Our Services</span></a></li>
+                        <li><a href="#projects" class="hover:text-primary transition"><span class="ar-text">سابقة الأعمال</span><span class="en-text">Portfolio</span></a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4 border-b border-gray-700 pb-2">
+                        <span class="ar-text">نطاق عملنا</span><span class="en-text">Locations</span>
+                    </h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fa-solid fa-angle-right text-primary mx-1 text-sm rtl:rotate-180"></i> <span class="ar-text">المنيا</span><span class="en-text">Minya</span></li>
+                        <li><i class="fa-solid fa-angle-right text-primary mx-1 text-sm rtl:rotate-180"></i> <span class="ar-text">مستقبل مصر</span><span class="en-text">Mostakbal Misr</span></li>
+                        <li><i class="fa-solid fa-angle-right text-primary mx-1 text-sm rtl:rotate-180"></i> <span class="ar-text">مدينة النور</span><span class="en-text">Madinat Al-Noor</span></li>
+                        <li><i class="fa-solid fa-angle-right text-primary mx-1 text-sm rtl:rotate-180"></i> <span class="ar-text">زايد الجديدة</span><span class="en-text">New Zayed</span></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+                <p>
+                    <span class="ar-text">&copy; 2026 شركة ماستر للمقاولات العامة والتوريدات العمومية. جميع الحقوق محفوظة.</span>
+                    <span class="en-text">&copy; 2026 Master for General Contracting & Supplies. All rights reserved.</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script for Language & Mobile Menu Toggle -->
+    <script src="main.js"></script>
+</body>
+</html>
