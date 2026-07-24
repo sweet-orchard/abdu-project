@@ -741,7 +741,7 @@
                         <img src="media/Abu Qurqas/12.jpeg" class="w-full h-full object-contain shrink-0 snap-center">
                         <img src="media/Abu Qurqas/13.jpeg" class="w-full h-full object-contain shrink-0 snap-center">
                     </div>
-                    <div class="absolute bottom-2 left-1/2 transform -translate-x-1/2 bg-black/60 text-white px-4 py-1.5 rounded-full text-xs pointer-events-none backdrop-blur-md flex items-center gap-2 shadow-lg border border-white/20">
+                    <div class="swipe-hint transition-opacity duration-300 absolute bottom-2 left-1/2 transform -translate-x-1/2 bg-black/60 text-white px-4 py-1.5 rounded-full text-xs pointer-events-none backdrop-blur-md flex items-center gap-2 shadow-lg border border-white/20">
                         <i class="fa-solid fa-arrows-left-right"></i>
                         <span class="ar-text">اسحب لمشاهدة المزيد من الصور</span>
                         <span class="en-text">Swipe for more images</span>
@@ -819,7 +819,7 @@
                         <img src="media/Hayah Karima/11.jpeg" class="w-full h-full object-contain shrink-0 snap-center">
                         <img src="media/Hayah Karima/12.jpeg" class="w-full h-full object-contain shrink-0 snap-center">
                     </div>
-                    <div class="absolute bottom-2 left-1/2 transform -translate-x-1/2 bg-black/60 text-white px-4 py-1.5 rounded-full text-xs pointer-events-none backdrop-blur-md flex items-center gap-2 shadow-lg border border-white/20">
+                    <div class="swipe-hint transition-opacity duration-300 absolute bottom-2 left-1/2 transform -translate-x-1/2 bg-black/60 text-white px-4 py-1.5 rounded-full text-xs pointer-events-none backdrop-blur-md flex items-center gap-2 shadow-lg border border-white/20">
                         <i class="fa-solid fa-arrows-left-right"></i>
                         <span class="ar-text">اسحب لمشاهدة المزيد من الصور</span>
                         <span class="en-text">Swipe for more images</span>
@@ -887,7 +887,7 @@
                         <img src="media/Mostakbal/4.jpeg" class="w-full h-full object-contain shrink-0 snap-center">
                         <img src="media/Mostakbal/5.jpeg" class="w-full h-full object-contain shrink-0 snap-center">
                     </div>
-                    <div class="absolute bottom-2 left-1/2 transform -translate-x-1/2 bg-black/60 text-white px-4 py-1.5 rounded-full text-xs pointer-events-none backdrop-blur-md flex items-center gap-2 shadow-lg border border-white/20">
+                    <div class="swipe-hint transition-opacity duration-300 absolute bottom-2 left-1/2 transform -translate-x-1/2 bg-black/60 text-white px-4 py-1.5 rounded-full text-xs pointer-events-none backdrop-blur-md flex items-center gap-2 shadow-lg border border-white/20">
                         <i class="fa-solid fa-arrows-left-right"></i>
                         <span class="ar-text">اسحب لمشاهدة المزيد من الصور</span>
                         <span class="en-text">Swipe for more images</span>
@@ -955,7 +955,7 @@
                         <img src="media/Madinat/3.jpeg" class="w-full h-full object-contain shrink-0 snap-center">
                         <img src="media/Madinat/4.jpeg" class="w-full h-full object-contain shrink-0 snap-center">
                     </div>
-                    <div class="absolute bottom-2 left-1/2 transform -translate-x-1/2 bg-black/60 text-white px-4 py-1.5 rounded-full text-xs pointer-events-none backdrop-blur-md flex items-center gap-2 shadow-lg border border-white/20">
+                    <div class="swipe-hint transition-opacity duration-300 absolute bottom-2 left-1/2 transform -translate-x-1/2 bg-black/60 text-white px-4 py-1.5 rounded-full text-xs pointer-events-none backdrop-blur-md flex items-center gap-2 shadow-lg border border-white/20">
                         <i class="fa-solid fa-arrows-left-right"></i>
                         <span class="ar-text">اسحب لمشاهدة المزيد من الصور</span>
                         <span class="en-text">Swipe for more images</span>
@@ -1038,7 +1038,7 @@
                         <img src="media/New Zayed/18.jpeg" class="w-full h-full object-contain shrink-0 snap-center">
                         <img src="media/New Zayed/19.jpeg" class="w-full h-full object-contain shrink-0 snap-center">
                     </div>
-                    <div class="absolute bottom-2 left-1/2 transform -translate-x-1/2 bg-black/60 text-white px-4 py-1.5 rounded-full text-xs pointer-events-none backdrop-blur-md flex items-center gap-2 shadow-lg border border-white/20">
+                    <div class="swipe-hint transition-opacity duration-300 absolute bottom-2 left-1/2 transform -translate-x-1/2 bg-black/60 text-white px-4 py-1.5 rounded-full text-xs pointer-events-none backdrop-blur-md flex items-center gap-2 shadow-lg border border-white/20">
                         <i class="fa-solid fa-arrows-left-right"></i>
                         <span class="ar-text">اسحب لمشاهدة المزيد من الصور</span>
                         <span class="en-text">Swipe for more images</span>
@@ -1144,5 +1144,30 @@
     
     <!-- Script for Language & Mobile Menu Toggle -->
     <script src="main.js"></script>
+    <!-- Medium Zoom for image zooming -->
+    <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize medium zoom on modal gallery images
+            mediumZoom('[id^="modal-proj-"] .overflow-x-auto img', {
+                margin: 10,
+                background: 'rgba(0, 0, 0, 0.9)',
+                scrollOffset: 0,
+            });
+
+            // Hide swipe hint when user scrolls the gallery
+            document.querySelectorAll('.overflow-x-auto').forEach(container => {
+                container.addEventListener('scroll', function() {
+                    const hint = this.parentElement.querySelector('.swipe-hint');
+                    if(hint) {
+                        hint.classList.add('opacity-0');
+                        setTimeout(() => {
+                            hint.classList.add('hidden');
+                        }, 300);
+                    }
+                }, { once: true });
+            });
+        });
+    </script>
 </body>
 </html>
